@@ -46,3 +46,6 @@ Iniciar o postgres pelo name 'postgres12'
   `docker start postgres12`  
 remover o contaiter com o postgres pelo name 'postgres12'  
   `docker rm postgres12`  
+
+#### pgAdmin
+  `docker run --name pgadmin4 -e "PGADMIN_DEFAULT_EMAIL=contato@marcelomichels.com"  -e "PGADMIN_DEFAULT_PASSWORD=85660000" -d -p 5454:80 dpage/pgadmin4`
