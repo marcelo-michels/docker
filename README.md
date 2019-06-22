@@ -12,7 +12,7 @@
 
   `docker ps -a`
 
-## Limpar o docker  
+## Remove todos os containers  
 
   `docker system prune`  
   `docker container prune`
@@ -20,6 +20,10 @@
 ## Inicia um docker compose file  
 
   `docker-compose up -d`  
+
+## Para todos os containers que estejam rodando 
+
+  `docker stop $(docker ps -aq)`  
  
 ## Parar um container  
 
