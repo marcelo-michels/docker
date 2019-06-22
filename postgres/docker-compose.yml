@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  postgres12:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5412:5432"
+    volumes:
+      - ~/developer/docker/postgres/12:/var/lib/postgresql/data 
+    networks:
+      - postgres12-network
+  postgres10:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5410:5432"
+    volumes:
+      - ~/developer/docker/postgres/10:/var/lib/postgresql/data 
+    networks:
+      - postgres12-network
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "contato@marcelomichels.com"
+      PGADMIN_DEFAULT_PASSWORD: "85660000"
+    ports:
+      - "5454:80"
+    depends_on:
+      - postgres10
+      - postgres12
+    networks:
+      - postgres12-network
+
+networks: 
+  postgres12-network:
+    driver: bridge
