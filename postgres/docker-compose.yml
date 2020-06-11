@@ -6,21 +6,11 @@ services:
     environment:
       POSTGRES_PASSWORD: "postgres"
     ports:
-      - "5412:5432"
+      - "5432:5432"
     volumes:
       - ~/developer/docker/postgres/12:/var/lib/postgresql/data 
     networks:
-      - postgres12-network
-  postgres10:
-    image: postgres:10
-    environment:
-      POSTGRES_PASSWORD: "postgres"
-    ports:
-      - "5410:5432"
-    volumes:
-      - ~/developer/docker/postgres/10:/var/lib/postgresql/data 
-    networks:
-      - postgres12-network
+      - postgres-network
       
   pgadmin:
     image: dpage/pgadmin4
@@ -30,11 +20,10 @@ services:
     ports:
       - "5454:80"
     depends_on:
-      - postgres10
       - postgres12
     networks:
-      - postgres12-network
+      - postgres-network
 
 networks: 
-  postgres12-network:
+  postgres-network:
     driver: bridge
