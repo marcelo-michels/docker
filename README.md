@@ -24,15 +24,19 @@
 ## Para todos os containers que estejam rodando 
 
   `docker stop $(docker ps -aq)`  
- 
+
 ## Parar um container  
 
-  `docker stop name`  
+  `docker stop <container_id>`  
 
 ## Iniciar um container  
 
-  `docker start mongo`  
+  `docker start <container_id>`  
 
 ## remover um container  
 
-  `docker rm mongo`  
+  `docker rm <container_id>`  
+
+## entrar no terminal de um container
+
+  `docker exec -it <container_id> bash`  

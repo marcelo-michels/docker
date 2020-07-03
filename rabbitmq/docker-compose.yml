@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  redis:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "25676:25676"
